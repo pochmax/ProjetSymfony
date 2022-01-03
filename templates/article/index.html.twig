@@ -7,36 +7,36 @@
 
 
 	{# <table class="table">
-		        <thead>
-		            <tr>
-		                <th>Id</th>
-		                <th>Titre</th>
-		                <th>Link</th>
-		                <th>Auteur</th>
-		                <th>actions</th>
-		                <th>Rate</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-		        {% for article in articles %}
-		            <tr>
-		                <td>{{ article.id }}</td>
-		                <td>{{ article.titre }}</td>
-		                <td>{{ article.link }}</td>
-		                <td>{{ article.author.NickName }}</td>
-		                <td>
-		                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-		                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-		                </td>
-		                <td>{{ article.rate }}</td>
-		            </tr>
-		        {% else %}
-		            <tr>
-		                <td colspan="5">no records found</td>
-		            </tr>
-		        {% endfor %}
-		        </tbody>
-		    </table> #}
+				        <thead>
+				            <tr>
+				                <th>Id</th>
+				                <th>Titre</th>
+				                <th>Link</th>
+				                <th>Auteur</th>
+				                <th>actions</th>
+				                <th>Rate</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				        {% for article in articles %}
+				            <tr>
+				                <td>{{ article.id }}</td>
+				                <td>{{ article.titre }}</td>
+				                <td>{{ article.link }}</td>
+				                <td>{{ article.author.NickName }}</td>
+				                <td>
+				                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+				                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+				                </td>
+				                <td>{{ article.rate }}</td>
+				            </tr>
+				        {% else %}
+				            <tr>
+				                <td colspan="5">no records found</td>
+				            </tr>
+				        {% endfor %}
+				        </tbody>
+				    </table> #}
 
 
 	<br>
@@ -116,19 +116,18 @@
 										</a>
 									</td>
 									<td class="px-6 py-4 text-sm text-gray-500">
-										
+
 										<a href="/article/vote/{{article.id}}/+">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewbox="0 0 16 16">
-												<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewbox="0 0 16 16">
+												<path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
 											</svg>
 										</a>
-                                        
-                                        {{ article.rate }}
+
+										{{ article.rate }}
 
 										<a href="/article/vote/{{article.id}}/-">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-minus" viewbox="0 0 16 16">
-												<path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-												<path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewbox="0 0 16 16">
+												<path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
 											</svg>
 										</a>
 									</td>
