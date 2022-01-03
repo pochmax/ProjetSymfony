@@ -22,7 +22,7 @@
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
                 <td>{{ blog.content }}</td>
-                <td>{{ blog.author }}</td>
+                <td>{{ blog.author.NickName }}</td>
                 <td>
                     <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
                     {% if is_granted('ROLE_ADMIN') %}
