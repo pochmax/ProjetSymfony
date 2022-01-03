@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Blog index</h1>
 
-    <table class="table">
+    {# <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -37,7 +37,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> #}
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('blog_new') }}">Create new</a>
     {% endif %}

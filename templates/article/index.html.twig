@@ -36,9 +36,9 @@
         {% endfor %}
         </tbody>
     </table> #}
-
-    <a href="{{ path('article_new') }}">Create new</a>
-
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('article_new') }}">Create new</a>
+    {% endif %}
 
     <div class="container flex justify-center mx-auto">
         <div class="flex flex-col">
