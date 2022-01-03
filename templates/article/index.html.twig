@@ -1,35 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog index{% endblock %}
+{% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Blog index</h1>
+    <h1>Article index</h1>
 
-    <table class="table">
+    {# <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Author</th>
+                <th>Titre</th>
+                <th>Link</th>
+                <th>Auteur</th>
                 <th>actions</th>
+                <th>Rate</th>
             </tr>
         </thead>
         <tbody>
-    
-        {% for blog in blogs %}
+        {% for article in articles %}
             <tr>
-                <td>{{ blog.id }}</td>
-                <td>{{ blog.title }}</td>
-                <td>{{ blog.content }}</td>
-                <td>{{ blog.author.NickName }}</td>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.link }}</td>
+                <td>{{ article.author.NickName }}</td>
                 <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
-                    {% endif %}
+                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
                 </td>
-                
+                <td>{{ article.rate }}</td>
             </tr>
         {% else %}
             <tr>
@@ -37,10 +35,10 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('blog_new') }}">Create new</a>
-    {% endif %}
+    </table> #}
+
+    <a href="{{ path('article_new') }}">Create new</a>
+
 
     <div class="container flex justify-center mx-auto">
         <div class="flex flex-col">
@@ -53,10 +51,10 @@
                                     ID
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
-                                    Title
+                                    Description
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
-                                    Content
+                                    Link
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
                                     Author
@@ -69,28 +67,31 @@
                                 <th class="px-6 py-2 text-xs text-gray-500">
                                     Détail
                                 </th>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    rate
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-300">
-                            {% for blog in blogs %}
+                            {% for article in articles %}
                                 <tr class="whitespace-nowrap">
                                     <td class="px-6 py-4 text-sm text-gray-500">
-                                        {{ blog.id }}
+                                        {{ article.id }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="text-sm text-gray-900">
-                                            {{ blog.title }}
+                                            {{ article.titre }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-500">{{ blog.content }}</div>
+                                        <div class="text-sm text-gray-500"><a href="{{ article.link }}">{{ article.link }}</a></div>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500">
-                                        {{ blog.author.NickName }}
+                                        {{ article.author.NickName }}
                                     </td>
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <td class="px-6 py-4">
-                                            <a href="{{ path('blog_edit', {'id': blog.id}) }}">
+                                            <a href="{{ path('article_edit', {'id': article.id}) }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -100,12 +101,15 @@
                                         </td>
                                     {% endif %}
                                     <td class="px-6 py-4">
-                                        <a href="{{ path('blog_show', {'id': blog.id}) }}">
+                                        <a href="{{ path('article_show', {'id': article.id}) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                             </svg>
                                         </a>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ article.rate }}
                                     </td>
                                 </tr>
                             {% endfor %}

@@ -22,6 +22,9 @@ class Article
     #[ORM\Column(type: 'integer')]
     private $rate;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Article
     public function setRate(int $rate): self
     {
         $this->rate = $rate;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?user
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?user $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
