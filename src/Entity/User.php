@@ -48,8 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Blog::class)]
     private $blogs;
 
-    #[ORM\OneToMany(mappedBy: 'Author', targetEntity: Article::class)]
+    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'User')]
     private $articles;
+
 
     public function __construct()
     {
@@ -236,7 +237,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->setAuthor($this);
+            $article->addUser($this);
         }
 
         return $this;
@@ -245,10 +246,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeArticle(Article $article): self
     {
         if ($this->articles->removeElement($article)) {
-            // set the owning side to null (unless already changed)
-            if ($article->getAuthor() === $this) {
-                $article->setAuthor(null);
-            }
+            $article->removeUser($this);
         }
 
         return $this;

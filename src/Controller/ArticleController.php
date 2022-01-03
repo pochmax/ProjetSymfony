@@ -31,7 +31,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
-            $article -> setAuthor($this->getUser());
+            //$article -> setAuthor($this->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -79,5 +79,28 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/vote/{id}/{type}', name:'vote',  methods: ['GET'])]
+    public function vote(int $id, ArticleRepository $articleRepository, $type, EntityManagerInterface $entityManager){
+        $article = $articleRepository -> find($id);
+        if($article -> getUser()->contains($this->getUser())){
+            return $this->redirectToRoute('article_index');
+        }else{
+            
+            $rate = $article -> getRate();
+            if($type== "+"){
+                $rate ++;
+            }else {
+                $rate --;
+            }
+
+            $article ->setRate($rate);
+            $article -> addUser($this->getUser());
+            $entityManager -> persist($article);
+            $entityManager -> flush();
+            
+        }
+        return $this->redirectToRoute('article_index');
     }
 }

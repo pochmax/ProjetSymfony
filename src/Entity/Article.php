@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
@@ -22,8 +24,15 @@ class Article
     #[ORM\Column(type: 'integer')]
     private $rate;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
-    private $author;
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'articles')]
+    private $User;
+
+    public function __construct()
+    {
+        $this->User = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
@@ -66,15 +75,29 @@ class Article
         return $this;
     }
 
-    public function getAuthor(): ?user
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
     {
-        return $this->author;
+        return $this->User;
     }
 
-    public function setAuthor(?user $author): self
+    public function addUser(User $user): self
     {
-        $this->author = $author;
+        if (!$this->User->contains($user)) {
+            $this->User[] = $user;
+        }
 
         return $this;
     }
+
+    public function removeUser(User $user): self
+    {
+        $this->User->removeElement($user);
+
+        return $this;
+    }
+
+    
 }
