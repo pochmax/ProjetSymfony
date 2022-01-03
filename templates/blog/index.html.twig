@@ -16,6 +16,7 @@
             </tr>
         </thead>
         <tbody>
+    
         {% for blog in blogs %}
             <tr>
                 <td>{{ blog.id }}</td>
@@ -24,8 +25,11 @@
                 <td>{{ blog.author }}</td>
                 <td>
                     <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
+                    {% endif %}
                 </td>
+                
             </tr>
         {% else %}
             <tr>
@@ -34,6 +38,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('blog_new') }}">Create new</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('blog_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
