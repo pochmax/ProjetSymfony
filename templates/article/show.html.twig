@@ -44,14 +44,14 @@
 		</div>
 
 
-		<center>
+		{# <center>
 			<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
 				<a href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
 			</button>
 		</center>
 		<center>
 			{{ include('article/_delete_form.html.twig') }}
-		</center>
+		</center> #}
 		<center>
 			<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
 				<a href="{{ path('article_index') }}">Back to list</a>
