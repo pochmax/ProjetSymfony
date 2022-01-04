@@ -22,16 +22,13 @@
 						<thead class="bg-gray-50">
 							<tr>
 								<th class="px-6 py-2 text-xs text-gray-500">
-									ID
+									Rank
 								</th>
 								<th class="px-6 py-2 text-xs text-gray-500">
 									Description
 								</th>
 								<th class="px-6 py-2 text-xs text-gray-500">
 									Link
-								</th>
-								<th class="px-6 py-2 text-xs text-gray-500">
-									Author
 								</th>
 								{% if is_granted('ROLE_ADMIN') %}
 									<th class="px-6 py-2 text-xs text-gray-500">
@@ -64,9 +61,6 @@
 										<div class="text-sm text-gray-500">
 											<a href="{{ article.link }}">{{ article.link }}</a>
 										</div>
-									</td>
-									<td
-										class="px-6 py-4 text-sm text-gray-500">{# {{ article.author.NickName }} #}
 									</td>
 									{% if is_granted('ROLE_ADMIN') %}
 										<td class="px-6 py-4">
