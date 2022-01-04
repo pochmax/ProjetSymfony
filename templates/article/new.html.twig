@@ -4,10 +4,26 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Create new Article</h1>
+	<center>
+		<br>
+		<div class="container flex justify-center ">
 
-	{{ include('article/_form.html.twig') }}
-	<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
-		<a href="{{ path('article_index') }}">back to list</a>
-	</button>
+			<h1 class="text-3xl text-cyan-500">Create new Article</h1>
+		</center>
+	</div>
+	<br>
+
+	<div class="container flex justify-center mx-auto">
+		<div class="flex flex-col">
+			<div class="w-full"></div>
+
+			<center>
+
+				{{ include('article/_form.html.twig') }}
+				<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
+					<a href="{{ path('article_index') }}">back to list</a>
+				</button>
+			</center>
+		</div>
+	</div>
 {% endblock %}
