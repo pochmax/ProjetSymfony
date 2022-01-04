@@ -1,14 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Blog{% endblock %}
+{% block title %}Edit Blog
+{% endblock %}
 
 {% block body %}
+	<br>
+	<div class="container flex justify-center ">
+
+		<h1 class="text-3xl text-cyan-500">Edit Blog</h1>
+
+	</div>
+	<br>
 
 
-    {{ include('blog/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="container flex justify-center mx-auto">
+		<div class="flex flex-col">
+			<div class="w-full">
+				
+			</div>
 
-    <button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded"> <a href="{{ path('blog_index') }}">back to list</a> </button>
-    
+			<center>
+				{{ include('blog/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('blog/_delete_form.html.twig') }}
+
+				{{ include('blog/_delete_form.html.twig') }}
+
+
+				<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
+					<a href="{{ path('blog_index') }}">back to blog</a>
+				</button>
+			</center>
+		</div>
+	</div>
 {% endblock %}

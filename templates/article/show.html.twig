@@ -19,19 +19,19 @@
 					<table class="divide-y divide-gray-300 ">
 						<tbody></tbody>
 						<thead class="bg-gray-50">
-							<tr>
+							<tr class="whitespace-nowrap">
 								<th class="px-6 py-4 text-sm text-gray-500">Id</th>
 								<td>{{ article.id }}</td>
 							</tr>
-							<tr>
+							<tr class="whitespace-nowrap">
 								<th class="px-6 py-4 text-sm text-gray-500">Titre</th>
 								<td>{{ article.titre }}</td>
 							</tr>
-							<tr>
+							<tr class="whitespace-nowrap">
 								<th class="px-6 py-4 text-sm text-gray-500">Link</th>
 								<td>{{ article.link }}</td>
 							</tr>
-							<tr>
+							<tr class="whitespace-nowrap">
 								<th class="px-6 py-4 text-sm text-gray-500">Rate</th>
 								<td>{{ article.rate }}</td>
 							</tr>
@@ -40,15 +40,20 @@
 				</table>
 			</div>
 		</div>
-        <button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
-	<a href="{{ path('article_index') }}">Back to list</a>
-</button>
-<br>
-<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
-	<a href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
-</button>
 
+
+		<center>
+			<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
+				<a href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
+			</button>
+		</center>
+		<center>
+			{{ include('article/_delete_form.html.twig') }}
+		</center>
+		<center>
+			<button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded">
+				<a href="{{ path('article_index') }}">Back to list</a>
+			</button>
+		</center>
 	</div>
-</div>
-
-{{ include('article/_delete_form.html.twig') }}{% endblock %}
+</div>{% endblock %}
