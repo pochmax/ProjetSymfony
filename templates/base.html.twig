@@ -44,8 +44,15 @@
 						Contact
 					</a>
 				</div>
+                <div style= "margin-right:20px;">
+                    {% if app.user %}
+                        <h1>Bienvenue {{app.user.NickName}} !</h1>
+                    {% endif %}
+                </div>
+                
 				<div>
                     {% if app.user %}
+                        
 						<a href="/logout" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white hover:text-black border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Log Out</a>
 					{% else %}
 						<a href="/" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white hover:text-black border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Log In</a>
