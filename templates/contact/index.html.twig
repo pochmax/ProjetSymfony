@@ -18,41 +18,36 @@
 			<div>
 				{{ form_start(our_form) }}
 				<div>
-				<label for="fullName">Full Name :</label>
-			
-					{{ form_label(our_form.fullName, "fullName",{'label_attr' : { 'class':'sr-only'}}) }}
+					{{ form_label(our_form.fullName, "fullName :") }}
 					{{ form_errors(our_form.fullName) }}
-					{{form_widget(our_form.fullName, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Ozwarp'  }}) }}
+					{{form_widget(our_form.fullName, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Your Name'  }}) }}
 				</div>
-				</br>
-				<div>
-				<label for="fullName">Email :</label>
-					{{ form_label(our_form.email, "email",{'label_attr' : { 'class':'sr-only'}}) }}
-					{{ form_errors(our_form.email) }}
-					{{form_widget(our_form.email, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'exemple@gmail.com'  }}) }}
-				</div>
-				</br>
-				<div>
-				<label for="fullName">Votre Message :</label>
-					{{ form_label(our_form.message, "message",{'label_attr' : { 'class':'sr-only'}}) }}
-					{{ form_errors(our_form.message) }}
-					{{form_widget(our_form.message, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Votre message ...', 'style':'resize:none;'  }}) }}
-				</div>
-				</br>
-				<div>
-					<button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-						<span class="absolute left-0 inset-y-0 flex items-center pl-3">
-
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-plus" viewbox="0 0 16 16">
-								<path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-								<path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
-							</svg>
-						</span>
-						Envoyer votre Message
-					</button>
-				</div>
-				{{ form_end(our_form) }}
+			</br>
+			<div>
+				
+				{{ form_label(our_form.email, "Email :") }}
+				{{ form_errors(our_form.email) }}
+				{{form_widget(our_form.email, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'exemple@gmail.com'  }}) }}
 			</div>
+		</br>
+		<div>
+			
+			{{ form_label(our_form.message, "Votre message :") }}
+			{{ form_errors(our_form.message) }}
+			{{form_widget(our_form.message, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Votre message ...', 'style':'resize:none;'  }}) }}
+		</div>
+	</br>
+	<div>
+		<button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+			<span class="absolute left-0 inset-y-0 flex items-center pl-3">
 
-
-		{% endblock %}
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-plus" viewbox="0 0 16 16">
+					<path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+					<path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+				</svg>
+			</span>
+			Envoyer votre Message
+		</button>
+	</div>
+	{{ form_end(our_form) }}
+</div>{% endblock %}
