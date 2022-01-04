@@ -6,39 +6,7 @@
 {% block body %}
 
 
-	{# <table class="table">
-				        <thead>
-				            <tr>
-				                <th>Id</th>
-				                <th>Title</th>
-				                <th>Content</th>
-				                <th>Author</th>
-				                <th>actions</th>
-				            </tr>
-				        </thead>
-				        <tbody>
-				    
-				        {% for blog in blogs %}
-				            <tr>
-				                <td>{{ blog.id }}</td>
-				                <td>{{ blog.title }}</td>
-				                <td>{{ blog.content }}</td>
-				                <td>{{ blog.author.NickName }}</td>
-				                <td>
-				                    <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
-				                    {% if is_granted('ROLE_ADMIN') %}
-				                        <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
-				                    {% endif %}
-				                </td>
-				                
-				            </tr>
-				        {% else %}
-				            <tr>
-				                <td colspan="5">no records found</td>
-				            </tr>
-				        {% endfor %}
-				        </tbody>
-				    </table> #}
+	
 	<br>
 	<center>
 		<div class="container flex justify-center ">
