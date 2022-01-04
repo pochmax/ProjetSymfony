@@ -71,14 +71,14 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'article_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'article_delete', methods: ['GET'])]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($article);
-            $entityManager->flush();
-            $this->addFlash('success', 'Votre article à été supprimé!');
-        }
+       
+        $entityManager->remove($article);
+        $entityManager->flush();
+        $this->addFlash('success', 'Votre article à été supprimé!');
+        
 
         return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
     }
@@ -87,6 +87,7 @@ class ArticleController extends AbstractController
     public function vote(int $id, ArticleRepository $articleRepository, $type, EntityManagerInterface $entityManager){
         $article = $articleRepository -> find($id);
         if($article -> getUser()->contains($this->getUser())){
+            $this->addFlash('error', 'Vous avez deja voté pour le lien '.$id);
             return $this->redirectToRoute('article_index');
         }else{
             
