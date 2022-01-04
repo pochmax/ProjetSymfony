@@ -14,7 +14,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre')
             ->add('link')
-            ->add('rate')
+            // ->add('rate')
         ;
     }
 

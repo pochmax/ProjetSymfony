@@ -36,7 +36,7 @@ class BlogController extends AbstractController
             $blog -> setAuthor($this->getUser());
             $entityManager->persist($blog);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Votre blog a été ajouté!');
             return $this->redirectToRoute('blog_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -62,7 +62,7 @@ class BlogController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
+            $this->addFlash('success', 'Votre blog a été modifié!');
             return $this->redirectToRoute('blog_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -78,6 +78,7 @@ class BlogController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$blog->getId(), $request->request->get('_token'))) {
             $entityManager->remove($blog);
             $entityManager->flush();
+            $this->addFlash('success', 'Votre blog a été supprimé!');
         }
 
         return $this->redirectToRoute('blog_index', [], Response::HTTP_SEE_OTHER);

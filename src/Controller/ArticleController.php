@@ -18,7 +18,7 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findBy(array(),array('rate'=>'DESC')),
         ]);
     }
 
@@ -32,9 +32,10 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             //$article -> setAuthor($this->getUser());
+            $article -> setRate(0);
             $entityManager->persist($article);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Votre blog a été ajouté!');
             return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -60,7 +61,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
+            $this->addFlash('success', 'Votre blog a été modifié!');
             return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -76,6 +77,7 @@ class ArticleController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $entityManager->remove($article);
             $entityManager->flush();
+            $this->addFlash('success', 'Votre article à été supprimé!');
         }
 
         return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
@@ -99,7 +101,7 @@ class ArticleController extends AbstractController
             $article -> addUser($this->getUser());
             $entityManager -> persist($article);
             $entityManager -> flush();
-            
+            $this->addFlash('success', 'Votre vote à été pris en compte!');
         }
         return $this->redirectToRoute('article_index');
     }

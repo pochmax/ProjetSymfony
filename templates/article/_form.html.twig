@@ -11,12 +11,12 @@
 	{{ form_widget(form.link ,{'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'link'  }}) }}
 
 </div>
-<div>
+{# <div>
 	{{ form_label(form.rate, "rate",{'label_attr' : { 'class':'sr-only'}}) }}
 	{{ form_errors(form.rate) }}
 	{{ form_widget(form.rate ,{'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': '0'  }}) }}
 
-</div>
+</div> #}
 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
 	{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
