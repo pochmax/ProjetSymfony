@@ -27,30 +27,35 @@
 			{{ form_start(registrationForm) }}
 
 			<div>
-				{{ form_label(registrationForm.Nom, "Nom",{'label_attr' : { 'class':'sr-only'}}) }}
+				{{ form_label(registrationForm.Nom, "Nom :") }}
 				{{ form_errors(registrationForm.Nom) }}
 				{{form_widget(registrationForm.Nom, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Nom'  }}) }}
 			</div>
+			</br>
 			<div>
-				{{ form_label(registrationForm.Prenom, "Prenom",{'label_attr' : { 'class':'sr-only'}}) }}
+				{{ form_label(registrationForm.Prenom, "Prenom :") }}
 				{{ form_errors(registrationForm.Prenom) }}
 				{{form_widget(registrationForm.Prenom, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Prenom'  }}) }}
 			</div>
+			</br>
 			<div>
-				{{ form_label(registrationForm.UserName, "UserName",{'label_attr' : { 'class':'sr-only'}}) }}
+				{{ form_label(registrationForm.UserName, "UserName :") }}
 				{{ form_errors(registrationForm.UserName) }}
 				{{form_widget(registrationForm.UserName, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'UserName'  }}) }}
 			</div>
+			</br>
 			<div>
-				{{ form_label(registrationForm.email, "password",{'label_attr' : { 'class':'sr-only'}}) }}
+				{{ form_label(registrationForm.email, "Email :" ) }}
 				{{ form_errors(registrationForm.email) }}
 				{{form_widget(registrationForm.email, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', 'placeholder': 'Email'  }}) }}
 			</div>
+			</br>
 			<div>
-				{{ form_label(registrationForm.plainPassword, "password",{'label_attr' : { 'class':'sr-only'}}) }}
+				{{ form_label(registrationForm.plainPassword, "Password :") }}
 				{{ form_errors(registrationForm.plainPassword) }}
 				{{form_widget(registrationForm.plainPassword, {'attr' : {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm','placeholder': 'Password'  }}) }}
 			</div>
+			</br>
 			<div>
 
 				{{ form_errors(registrationForm.agreeTerms) }}
